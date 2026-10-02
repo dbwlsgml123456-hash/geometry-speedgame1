@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>도형 탐사대 · 합동과 대칭</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="universe">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="orbit orbit-one" aria-hidden="true"></div>
+    <div class="orbit orbit-two" aria-hidden="true"></div>
+    <svg class="shape triangle" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 22 177 164 24 145Z"/></svg>
+    <svg class="shape square" viewBox="0 0 200 200" aria-hidden="true"><path d="M44 28 165 54 145 171 27 141Z"/></svg>
+    <svg class="shape hexagon" viewBox="0 0 200 200" aria-hidden="true"><path d="M85 20 157 43 180 112 131 174 53 160 20 80Z"/></svg>
+    <svg class="shape pentagon" viewBox="0 0 200 200" aria-hidden="true"><path d="M91 20 178 83 142 174 46 159 22 69Z"/></svg>
+    <svg class="shape mini" viewBox="0 0 200 200" aria-hidden="true"><path d="M90 26 173 151 28 170Z"/></svg>
+    <header><a class="brand" href="index.html"><span class="brand-icon">✦</span> 도형 탐사대</a><span class="grade">5학년 수학 <span>·</span> 합동과 대칭</span></header>
+    <section class="hero" aria-labelledby="title">
+      <div class="badge"><span></span> 새로운 도형 탐사 미션</div>
+      <p class="eyebrow">GEOMETRY SPACE MISSION</p>
+      <h1 id="title">반짝이는 도형 속,<br><em>짝을 찾아 떠나요!</em></h1>
+      <p class="description">돌아가도, 뒤집혀도 같은 도형!<br>빛나는 점·변·각의 짝을 찾아 우주 미션을 해결해요.</p>
+      <div class="mission-controls">
+        <fieldset class="mode-options"><legend>문제 유형 · 여러 개 선택 가능</legend>
+          <label><input type="checkbox" name="mission-mode" value="congruent" checked><span>합동 도형</span></label>
+          <label><input type="checkbox" name="mission-mode" value="line"><span>선대칭도형</span></label>
+          <label><input type="checkbox" name="mission-mode" value="point"><span>점대칭도형</span></label>
+        </fieldset>
+        <button class="launch" id="mission-button">미션 살펴보기 <span aria-hidden="true">↗</span></button>
+      </div>
+      <p id="selection-note" class="selection-note" role="status">선택한 유형에서 무작위로 출제돼요 · 50문제</p>
+      <div class="mission-tags"><span>✧ 대응점</span><span>⌁ 대응변</span><span>∠ 대응각</span></div>
+    </section>
+    <footer><span class="signal"><i></i> 탐사 준비 완료</span><span>작은 발견이 모여, 큰 수학이 돼요.</span><span class="number">MISSION 02</span></footer>
+  </main>
+  <dialog id="mission-dialog" aria-labelledby="dialog-title">
+    <form method="dialog"><button class="close" aria-label="안내 닫기">×</button></form>
+    <p class="eyebrow">TRAINING MISSION</p>
+    <h2 id="dialog-title">도형 탐사 연습</h2>
+    <p id="practice-progress">연습 1 / 3 · 시간과 점수는 기록하지 않아요.</p>
+    <div id="practice-board"></div>
+    <p id="practice-feedback" class="feedback" role="status"></p>
+    <p class="rules">본게임 60초 · 정답 +10점 · 오답 −5점</p>
+    <button class="launch" id="start-button" disabled>연습 3문제를 먼저 풀어요</button>
+  </dialog>
+  <section id="game-screen" class="game-screen" hidden aria-labelledby="game-title">
+    <header><h2 id="game-title">✦ 도형 탐사 미션</h2><button id="exit-button" class="secondary">대문으로</button></header>
+    <div class="dashboard"><span>남은 시간 <strong id="time">60</strong>초</span><span>점수 <strong id="score">0</strong></span><span>정답 <strong id="correct">0</strong>개</span></div>
+    <div class="time-track"><div id="time-bar"></div></div>
+    <p id="question-progress" class="question-progress"></p>
+    <div id="game-board"></div>
+    <p id="game-feedback" class="feedback" role="status"></p>
+    <p class="rules">정답 +10점 · 오답 −5점 · 도형이나 아래 번호를 눌러요.</p>
+  </section>
+  <dialog id="result-dialog" aria-labelledby="result-title">
+    <span class="dialog-symbol">✦</span><h2 id="result-title">탐사 완료!</h2>
+    <p id="result-reason"></p><p id="result-score" class="result-score"></p><p id="result-detail"></p>
+    <button id="restart-button" class="launch">다시 도전하기</button>
+    <button id="home-button" class="secondary">대문으로 돌아가기</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
